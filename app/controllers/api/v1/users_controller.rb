@@ -6,19 +6,19 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def show
-    user = User.find(params[:id])
-    render json: {user: user, trips: user.trips}
+    user = User.include_all.find(params[:id])
+    render json: user.as_json(include_hash)
   end
 
   def create
-    user = User.create(user_params)
-    render json: user
+    user = User.include_all.find_or_create_by(user_params)
+    render json: user.as_json(include_hash)
   end
 
   def update
     user = User.find_by(username: params[:username])
     user.update(user_params)
-    render json: user
+    render json: user.as_json(include_hash)
   end
 
   def destroy
@@ -32,6 +32,13 @@ private
 
 def user_params
   params.require(:user).permit(:username, :first_name, :last_name, :email, :password)
+end
+
+def include_hash
+  {
+    :include => [:trips, :things]
+  }
+
 end
 
 end
