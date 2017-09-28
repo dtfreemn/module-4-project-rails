@@ -11,7 +11,8 @@ class Api::V1::TripsController < ApplicationController
   end
 
   def create
-    user = User.find(decoded_header[0].user_id)
+    byebug
+    user = User.find(decoded_token[0]['user_id'])
     trip = Trip.new(trip_params)
     trip.user = user
     trip.save

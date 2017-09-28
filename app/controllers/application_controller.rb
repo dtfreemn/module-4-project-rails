@@ -21,7 +21,8 @@ jwt_secret = 'ePZHP1wg2jLTqCHMvvdOHwbDwPINZtSOW2G2D'
       rescue JWT::DecodeError
         [{}]
       end
-    else
+      else
+    end
   end
 
 end
