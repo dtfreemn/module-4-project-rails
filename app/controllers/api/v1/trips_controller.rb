@@ -1,7 +1,8 @@
 class Api::V1::TripsController < ApplicationController
 
   def index
-    trips = Trip.all
+    user = User.find(decoded_token[0]['user_id'])
+    trips = user.trips
     render json: trips
   end
 
@@ -11,7 +12,6 @@ class Api::V1::TripsController < ApplicationController
   end
 
   def create
-    byebug
     user = User.find(decoded_token[0]['user_id'])
     trip = Trip.new(trip_params)
     trip.user = user
@@ -27,8 +27,9 @@ class Api::V1::TripsController < ApplicationController
 
   def destroy
     trip = Trip.find(params[:id])
+    user = trip.user
     trip.destroy
-    render json: {}
+    render json: {trips: user.trips}
   end
 
 

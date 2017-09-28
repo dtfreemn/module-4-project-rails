@@ -1,8 +1,8 @@
 class Api::V1::UsersController < ApplicationController
 
   def index
-    users = User.all
-    render json: users
+    user = User.include_all.find(decoded_token[0]['user_id'])
+    render json: user.as_json(include_hash)
   end
 
   def show
