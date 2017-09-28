@@ -1,6 +1,7 @@
 class Api::V1::ThingsController < ApplicationController
 
   def create
+    user = User.find(decoded_header[0].user_id)
     thing = Thing.create(thing_params)
     render json: thing
   end

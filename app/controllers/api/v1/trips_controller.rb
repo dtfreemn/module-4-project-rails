@@ -11,7 +11,10 @@ class Api::V1::TripsController < ApplicationController
   end
 
   def create
-    trip = Trip.create(trip_params)
+    user = User.find(decoded_header[0].user_id)
+    trip = Trip.new(trip_params)
+    trip.user = user
+    trip.save
     render json: trip
   end
 

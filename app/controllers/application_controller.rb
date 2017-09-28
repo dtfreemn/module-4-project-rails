@@ -9,6 +9,19 @@ jwt_secret = 'ePZHP1wg2jLTqCHMvvdOHwbDwPINZtSOW2G2D'
     token = JWT.encode(payload, 'ePZHP1wg2jLTqCHMvvdOHwbDwPINZtSOW2G2D')
   end
 
+  def auth_header
+    header = request.headers['Authorization']
+  end
 
+  def decoded_token
+    if auth_header
+      token=auth_header
+      begin
+        JWT.decode(token, 'ePZHP1wg2jLTqCHMvvdOHwbDwPINZtSOW2G2D', true, {algorithm: 'HS256'})
+      rescue JWT::DecodeError
+        [{}]
+      end
+    else
+  end
 
 end
