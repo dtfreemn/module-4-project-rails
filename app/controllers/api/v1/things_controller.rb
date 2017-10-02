@@ -10,8 +10,10 @@ class Api::V1::ThingsController < ApplicationController
 
   def destroy
     thing = Thing.find(params[:id])
+    trip_id = thing.trip_id
     thing.destroy
-    render json: {}
+    trip = Trip.find(trip_id)
+    render json: {things: trip.things}
   end
 
   def fetch_things
