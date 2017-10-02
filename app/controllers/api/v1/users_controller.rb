@@ -41,7 +41,7 @@ end
 
 def include_hash
   {
-    :include => [:trips, :things]
+    :include => [:trips => {:include => [:things]}]
   }
 
 end

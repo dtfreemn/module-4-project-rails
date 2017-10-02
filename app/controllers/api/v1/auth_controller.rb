@@ -5,6 +5,8 @@ def create
   if user && user.authenticate(params[:password])
     token = encode_token({user_id: user.id})
     render json: {user: user.as_json(include_hash), jwt: token}
+  else
+    render json: {error: 'User not found'}
   end
 end
 
