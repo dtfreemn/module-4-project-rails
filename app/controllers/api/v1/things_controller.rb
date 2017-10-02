@@ -33,7 +33,7 @@ class Api::V1::ThingsController < ApplicationController
 private
 
 def thing_params
-  params.require(:thing).permit(:name, :category, :description, :url, :trip_id)
+  params.require(:thing).permit(:name, :category, :description, :url, :trip_id, :image_url)
 end
 
 
