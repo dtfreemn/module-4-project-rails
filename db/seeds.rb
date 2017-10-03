@@ -71,3 +71,112 @@ city_list= ["Aberdeen", "Abilene", "Akron", "Albany", "Albuquerque", "Alexandria
 city_list.each do |city|
   City.create(name: city, country_id:32)
 end
+
+
+country_list = [{
+    "name": "Argentina"
+  },
+  {
+    "name": "Australia"
+  },
+  {
+    "name": "Austria"
+  },
+  {
+    "name": "Belgium"
+  },
+  {
+    "name": "Brazil"
+  },
+  {
+    "name": "Canada"
+  },
+  {
+    "name": "Chile"
+  },
+  {
+    "name": "Czech Republic"
+  },
+  {
+    "name": "Denmark"
+  },
+  {
+    "name": "Finland"
+  },
+  {
+    "name": "France"
+  },
+  {
+    "name": "Germany"
+  },
+  {
+    "name": "Hong Kong"
+  },
+  {
+    "name": "Ireland"
+  },
+  {
+    "name": "Italy"
+  },
+  {
+    "name": "Japan"
+  },
+  {
+    "name": "Malaysia"
+  },
+  {
+    "name": "Mexico"
+  },
+  {
+    "name": "New Zealand"
+  },
+  {
+    "name": "Norway"
+  },
+  {
+    "name": "Phillipines"
+  },
+  {
+    "name": "Poland"
+  },
+  {
+    "name": "Portugal"
+  },
+  {
+    "name": "Singapore"
+  },
+  {
+    "name": "Spain"
+  },
+  {
+    "name": "Sweden"
+  },
+  {
+    "name": "Switzerland"
+  },
+  {
+    "name": "Taiwan"
+  },
+  {
+    "name": "The Netherlands"
+  },
+  {
+    "name": "Turkey"
+  },
+  {
+    "name": "United Kingdom"
+  },
+  {
+    "name": "United States"
+  },
+  {
+    "name": "Iceland"
+  },
+  {
+    "name": "Trinidad and Tobago"
+  }
+]
+
+country_list.each do |country|
+  Country.create(name: country.name)
+end
