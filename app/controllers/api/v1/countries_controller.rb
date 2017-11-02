@@ -6,7 +6,7 @@ def index
 end
 
 def show
-  country=Country.find(params[:id])
+  country = Country.find(params[:id])
   render json: {country: country, cities: country.cities}
 end
 

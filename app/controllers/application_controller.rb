@@ -15,7 +15,7 @@ jwt_secret = 'ePZHP1wg2jLTqCHMvvdOHwbDwPINZtSOW2G2D'
 
   def decoded_token
     if auth_header
-      token=auth_header
+      token = auth_header
       begin
         JWT.decode(token, 'ePZHP1wg2jLTqCHMvvdOHwbDwPINZtSOW2G2D', true, {algorithm: 'HS256'})
       rescue JWT::DecodeError
